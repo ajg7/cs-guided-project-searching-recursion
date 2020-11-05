@@ -36,6 +36,20 @@ list I came up was absolutely huge, so make sure your solution is efficient.
 *Note: you should be able to come up with a solution that has O(log n) time
 complexity.*
 """
+from typing import List
+
 def find_rotation_point(surnames):
     # Your code here
+    left = 0
+    right = len(surnames) - 1
+    
+    while left < right:
+        mid = ((right - left) // 2) + left
+        if surnames[mid] > surnames[left]:
+            left = mid + 1
+        else:
+            right = mid
+        
+        if left + 1 == right:
+            return right
 

@@ -24,6 +24,21 @@ containsTypo(3) -> False
 containsTypo(5) -> True
 containsTypo(4) -> True
 """
-def firstDraftWithTypo(n):
-    # Your code here
 
+
+
+def firstDraftWithTypo(drafts):
+    # Your code here
+    left = 0
+    right = len(drafts) - 1
+    
+    while left < right:
+        mid = ((right - left) // 2) + left
+        
+        if containsTypo(mid):
+            right = mid
+        else:
+            left = mid
+            
+        if left + 1 == right:
+            return right 
